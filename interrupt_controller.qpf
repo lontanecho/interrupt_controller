@@ -1,0 +1,6 @@
+QUARTUS_VERSION = "9.1"
+DATE = "12:00:00  July 08, 2025"
+
+# Revisions
+
+PROJECT_REVISION = "interrupt_controller"

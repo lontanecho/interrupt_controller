@@ -1,0 +1,16 @@
+# Quartus 编译产物
+db/
+incremental_db/
+*.rpt
+*.summary
+*.smsg
+*.done
+*.dpf
+*.fit.rpt
+*.map.rpt
+*.tan.rpt
+*.pin
+*.pof
+*.qws
+*.asm.rpt
+*.flow.rpt

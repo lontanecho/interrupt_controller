@@ -1,0 +1,107 @@
+<mxfile host="app.diagrams.net">
+  <diagram name="interrupt_controller" id="interrupt-ctrl-2">
+    <mxGraphModel dx="2172" dy="1332" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1654" pageHeight="3200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- CLR -->
+        <mxCell id="CLR" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=13;fontStyle=1;" value="CLR" vertex="1">
+          <mxGeometry height="40" width="80" x="700" y="30" as="geometry" />
+        </mxCell>
+
+        <!-- SW 判断 -->
+        <mxCell id="SW" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=11;" value="SWC SWB SWA" vertex="1">
+          <mxGeometry height="60" width="160" x="660" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="e_clr_sw" edge="1" parent="1" source="CLR" style="edgeStyle=orthogonalEdgeStyle;" target="SW">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- 分支标签 -->
+        <mxCell id="lbl001" parent="1" style="text;html=1;align=center;fontSize=11;" value="001&#xa;写存储器" vertex="1">
+          <mxGeometry height="28" width="80" x="100" y="132" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl010" parent="1" style="text;html=1;align=center;fontSize=11;" value="010&#xa;读存储器" vertex="1">
+          <mxGeometry height="28" width="80" x="300" y="132" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl000" parent="1" style="text;html=1;align=center;fontSize=11;" value="000&#xa;取指/中断" vertex="1">
+          <mxGeometry height="28" width="80" x="590" y="132" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl011" parent="1" style="text;html=1;align=center;fontSize=11;" value="011&#xa;读寄存器" vertex="1">
+          <mxGeometry height="28" width="80" x="850" y="132" as="geometry" />
+        </mxCell>
+        <mxCell id="lbl100" parent="1" style="text;html=1;align=center;fontSize=11;" value="100&#xa;写寄存器" vertex="1">
+          <mxGeometry height="28" width="80" x="1080" y="132" as="geometry" />
+        </mxCell>
+
+        <!-- SW -> 各分支连线 -->
+        <mxCell id="e_sw_001" edge="1" parent="1" source="SW" target="sto001" style="edgeStyle=orthogonalEdgeStyle;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points"><mxPoint x="740" y="185"/><mxPoint x="140" y="185"/></Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_sw_010" edge="1" parent="1" source="SW" target="sto010" style="edgeStyle=orthogonalEdgeStyle;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points"><mxPoint x="740" y="185"/><mxPoint x="340" y="185"/></Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_sw_000" edge="1" parent="1" source="SW" target="flag_dia" style="edgeStyle=orthogonalEdgeStyle;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e_sw_011" edge="1" parent="1" source="SW" target="box011_w1" style="edgeStyle=orthogonalEdgeStyle;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points"><mxPoint x="740" y="185"/><mxPoint x="890" y="185"/></Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e_sw_100" edge="1" parent="1" source="SW" target="sto100" style="edgeStyle=orthogonalEdgeStyle;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points"><mxPoint x="740" y="185"/><mxPoint x="1120" y="185"/></Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- ===== 写存储器 001 ===== -->
+        <mxCell id="sto001" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12;" value="FLAG" vertex="1">
+          <mxGeometry height="50" width="60" x="110" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="box001_0" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" value="LAR SBUS&#xa;SELCTL STOP&#xa;SHORT" vertex="1">
+          <mxGeometry height="75" width="90" x="60" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="box001_1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" value="ARINC MEMW&#xa;SBUS SELCTL&#xa;STOP SHORT" vertex="1">
+          <mxGeometry height="75" width="90" x="170" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="e001_0" edge="1" parent="1" source="sto001" target="box001_0" style="edgeStyle=orthogonalEdgeStyle;exitX=0;exitY=0.5;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e001_1" edge="1" parent="1" source="sto001" target="box001_1" style="edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="lbl001_0" parent="1" style="text;html=1;fontSize=10;" value="0" vertex="1">
+          <mxGeometry height="16" width="14" x="88" y="208" as="geometry"/>
+        </mxCell>
+        <mxCell id="lbl001_1" parent="1" style="text;html=1;fontSize=10;" value="1" vertex="1">
+          <mxGeometry height="16" width="14" x="175" y="208" as="geometry"/>
+        </mxCell>
+
+        <!-- ===== 读存储器 010 ===== -->
+        <mxCell id="sto010" parent="1" style="rhombus;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#000000;fontSize=12;" value="FLAG" vertex="1">
+          <mxGeometry height="50" width="60" x="310" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="box010_0" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" value="LAR SBUS&#xa;SELCTL STOP&#xa;SHORT" vertex="1">
+          <mxGeometry height="75" width="90" x="260" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="box010_1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;" value="ARINC MBUS&#xa;SELCTL STOP&#xa;SHORT" vertex="1">
+          <mxGeometry height="75" width="90" x="370" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="e010_0" edge="1" parent="1" source="sto010" target="box010_0" style="edgeStyle=orthogonalEdgeStyle;exitX=0;exitY=0.5;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e010_1" edge="1" parent="1" source="sto010" target="box010_1" style="edgeStyle=orthogonalEdgeStyle;exitX=1;exitY=0.5;">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="lbl010_0" parent="1" style="text;html=1;fontSize=10;" value="0" vertex="1">
+          <mxGeometry height="16" width="14" x="288" y="208" as="geometry"/>
+        </mxCell>
+        <mxCell id="lbl010_1" parent="1" style="text;html=1;fontSize=10;" value="1" vertex="1">
+          <mxGeometry height="16" width="14" x="375" y="208" as="geometry"/>
+        </mxCell>
